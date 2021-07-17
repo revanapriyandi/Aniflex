@@ -9,8 +9,17 @@ export const emailSignInStart = (emailAndPassword) => ({
   payload: emailAndPassword,
 });
 
+
 export const googleSignInStart = () => ({
   type: authActionTypes.GOOGLE_SIGN_IN_START,
+});
+
+export const facebookSignInStart = () => ({
+  type: authActionTypes.FACEBOOK_SIGN_IN_START,
+});
+
+export const twitterSignInStart = () => ({
+  type: authActionTypes.TWITTER_SIGN_IN_START,
 });
 
 export const signInSuccess = (user) => ({

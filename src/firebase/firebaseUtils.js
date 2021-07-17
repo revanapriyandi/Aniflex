@@ -68,4 +68,14 @@ export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
+// Sign in With Facebook Setup with popup
+export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+facebookProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithFacebook = () => auth.signInWithPopup(facebookProvider);
+
+// Sign in With Twitter Setup with popup
+export const twitterProvider = new firebase.auth.TwitterAuthProvider();
+twitterProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithTwitter = () => auth.signInWithPopup(twitterProvider);
+
 export default firebase;

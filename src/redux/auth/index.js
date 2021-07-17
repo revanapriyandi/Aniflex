@@ -10,6 +10,8 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case authActionTypes.EMAIL_SIGN_IN_START:
     case authActionTypes.GOOGLE_SIGN_IN_START:
+    case authActionTypes.FACEBOOK_SIGN_IN_START:
+    case authActionTypes.TWITTER_SIGN_IN_START:
     case authActionTypes.SIGN_UP_START:
       return {
         ...state,

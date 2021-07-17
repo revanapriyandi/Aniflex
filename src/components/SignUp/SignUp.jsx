@@ -6,10 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { signUpStart } from "../../redux/auth/auth.actions";
 import { selectAuthLoadingState } from "../../redux/auth/auth.selectors";
 import InputField from "../InputField/InputField";
+import { selectAuthErrors } from "../../redux/auth/auth.selectors";
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAuthLoadingState);
+  const authError = useSelector(selectAuthErrors);
+  
   const { register, handleSubmit, errors, getValues } = useForm({
     mode: "onTouched",
   });
@@ -20,14 +23,26 @@ const SignUp = () => {
   };
 
   return (
-    <motion.form action="#" className="sign__form" variants={staggerOne}
+    <motion.form
+      action="#"
+      className="sign__form"
+      variants={staggerOne}
       initial="initial"
       animate="animate"
       exit="exit"
-      onSubmit={handleSubmit(onSubmit)}>
-      <motion.div className="sign__logo" >
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <motion.div className="sign__logo">
         <img src="img/logo.svg" alt="" />
       </motion.div>
+      {authError && (
+            <motion.p
+              variants={authFadeInUpVariants}
+              className="sign__form__p"
+            >
+              {authError}
+            </motion.p>
+          )}
       <motion.div className="sign__group" variants={authFadeInUpVariants}>
         <InputField
           type="text"
@@ -52,7 +67,8 @@ const SignUp = () => {
           validationMessage="Please enter a valid email address."
           validation={register({
             required: true,
-            pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            pattern:
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
           })}
           errors={errors}
           disabled={isLoading}
@@ -98,9 +114,7 @@ const SignUp = () => {
       <motion.button
         type="submit"
         variants={authFadeInUpVariants}
-        className={`sign__btn ${
-          isLoading && "loading"
-        }`}
+        className={`sign__btn ${isLoading && "loading"}`}
         disabled={isLoading}
       >
         {isLoading ? "Loading..." : "Sign Up"}

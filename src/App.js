@@ -12,6 +12,7 @@ const App = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const location = useLocation();
+  
 
   useEffect(() => {
     dispatch(checkUserSession());
@@ -30,16 +31,12 @@ const App = () => {
           <Route
             exact
             path="/login"
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <PageSignIn />
-            }
+            render={() => (currentUser ? <Redirect to="/" /> : <PageSignIn />)}
           />{" "}
           <Route
             exact
             path="/register"
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <PageSignUp />
-            }
+            render={() => (currentUser ? <Redirect to="/" /> : <PageSignUp />)}
           />{" "}
           <Route path="*">
             <Redirect to="/" />

@@ -16,7 +16,7 @@ const PageSignIn = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-    >
+      >
       <motion.div className="container" variants={modalVariants}>
         <motion.div className="row" variants={staggerOne}>
           <motion.div className="col-12">
@@ -26,7 +26,7 @@ const PageSignIn = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+      </motion.div>
   );
 };
 
