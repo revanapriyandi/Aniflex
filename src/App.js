@@ -12,22 +12,22 @@ const App = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const location = useLocation();
-  
 
   useEffect(() => {
     dispatch(checkUserSession());
   }, [dispatch]);
-
   return (
     <div className="App">
-      {" "}
-      {currentUser && (
-        <>
-          <Navbar />
-        </>
-      )}{" "}
+      {location.pathname === "/login" || location.pathname === "/register"
+        ? '' : <Navbar />}
+      
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to="/" />}
+          />{" "}
           <Route
             exact
             path="/login"

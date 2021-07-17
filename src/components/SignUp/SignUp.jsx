@@ -12,7 +12,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAuthLoadingState);
   const authError = useSelector(selectAuthErrors);
-  
+
   const { register, handleSubmit, errors, getValues } = useForm({
     mode: "onTouched",
   });
@@ -36,13 +36,10 @@ const SignUp = () => {
         <img src="img/logo.svg" alt="" />
       </motion.div>
       {authError && (
-            <motion.p
-              variants={authFadeInUpVariants}
-              className="sign__form__p"
-            >
-              {authError}
-            </motion.p>
-          )}
+        <motion.p variants={authFadeInUpVariants} className="sign__form__p">
+          {authError}
+        </motion.p>
+      )}
       <motion.div className="sign__group" variants={authFadeInUpVariants}>
         <InputField
           type="text"

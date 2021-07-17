@@ -9,7 +9,6 @@ export const emailSignInStart = (emailAndPassword) => ({
   payload: emailAndPassword,
 });
 
-
 export const googleSignInStart = () => ({
   type: authActionTypes.GOOGLE_SIGN_IN_START,
 });

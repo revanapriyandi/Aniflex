@@ -311,6 +311,10 @@ body::-webkit-scrollbar-thumb {
     color: #2f80ed;
 }
 
+.header__nav-link--active {
+    color: #2f80ed;
+}
+
 .header__nav-link:hover svg,
 .header__nav-link[aria-expanded="true"] svg {
     stroke: #2f80ed;

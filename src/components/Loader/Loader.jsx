@@ -1,4 +1,4 @@
-import "./style.css"
+import "./style.css";
 
 const Loader = () => <span className="lds-dual-ring"></span>;
 
